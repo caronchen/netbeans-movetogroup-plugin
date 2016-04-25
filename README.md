@@ -1,1 +1,1 @@
-# netbeans-movetogroup-plugin
+# Move project(s) to group
