@@ -21,7 +21,7 @@ import org.openide.windows.TopComponent;
 public final class ProjectGroupUtils {
 
     /**
-     * 获取当前项目组
+     * Get active project group name.
      *
      * @return
      */
@@ -35,7 +35,7 @@ public final class ProjectGroupUtils {
     }
 
     /**
-     * 获取当前待定的项目
+     * Get selected project information list.
      *
      * @return
      */
@@ -49,7 +49,7 @@ public final class ProjectGroupUtils {
     }
 
     /**
-     * 将当前项目移至指定的项目组
+     * Add project path to group, and close selected project(s).
      *
      * @param groupId
      * @param projectInfo
@@ -78,9 +78,9 @@ public final class ProjectGroupUtils {
     }
 
     /**
-     * 获取所有项目组
+     * Get all project groups.
      *
-     * @return
+     * @return String[0]=groupId, String[1]=groupName
      */
     public static List<String[]> getProjectGroups() {
         Preferences groupNode = getPreferences("org/netbeans/modules/projectui/groups");
