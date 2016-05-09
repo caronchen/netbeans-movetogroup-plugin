@@ -51,12 +51,12 @@ public final class ProjectGroupUtils {
     /**
      * Add project path to group, and close selected project(s).
      *
-     * @param groupId
+     * @param toGroupId
      * @param projectInfo
      * @return
      */
-    public static boolean moveToGroup(String groupId, ProjectInformation projectInfo) {
-        String preferPath = "org/netbeans/modules/projectui/groups/" + groupId;
+    public static boolean moveToGroup(String toGroupId, ProjectInformation projectInfo) {
+        String preferPath = "org/netbeans/modules/projectui/groups/" + toGroupId;
 
         Preferences groupNode = getPreferences(preferPath);
         if (null != groupNode) {
