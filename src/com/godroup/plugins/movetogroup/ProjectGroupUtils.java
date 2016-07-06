@@ -45,7 +45,7 @@ public final class ProjectGroupUtils {
             return null;
         }
 
-        return currentProjects.stream().map(t -> ProjectUtils.getInformation(t)).collect(toList());
+        return currentProjects.stream().map(ProjectUtils::getInformation).collect(toList());
     }
 
     /**
@@ -56,7 +56,12 @@ public final class ProjectGroupUtils {
      * @return
      */
     public static boolean moveToGroup(String toGroupId, ProjectInformation projectInfo) {
-        String preferPath = "org/netbeans/modules/projectui/groups/" + toGroupId;
+        String preferPath;
+        if ("none_group".equals(toGroupId)) {
+            preferPath = "org/netbeans/modules/projectui/nonegroup/" + toGroupId;
+        } else {
+            preferPath = "org/netbeans/modules/projectui/groups/" + toGroupId;
+        }
 
         Preferences groupNode = getPreferences(preferPath);
         if (null != groupNode) {
