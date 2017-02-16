@@ -32,7 +32,7 @@ import org.openide.util.actions.Presenter;
     @ActionReference(path = "Menu/File", position = 1350),
     @ActionReference(path = "Projects/Actions")
 })
-@Messages("CTL_MoveToGroupAction=Move To Group")
+@Messages("CTL_MoveToGroupAction=Move to Group")
 public final class MoveToGroupAction extends AbstractAction implements ActionListener, Presenter.Popup, DynamicMenuContent {
 
     private static final long serialVersionUID = -2716693145500890430L;
