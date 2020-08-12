@@ -64,11 +64,11 @@ public final class MoveToGroupAction extends AbstractAction implements ActionLis
         String activeGroupName = getActiveProjectGroup();
 
         if (activeGroupName != null) {
-            groups.add(0, new String[] {"none_group", "(none)"});
+            groups.add(0, new String[] {"none_group", "(none)", "0"});
         }
 
         groups.stream().filter(t -> !t[1].equals(activeGroupName)).forEach(t -> {
-            JMenuItem item = new JMenuItem(t[1]); // groupName as menu text.
+            JMenuItem item = new JMenuItem(t[1] + "(" + t[2] + ")"); // groupName + count as menu text.
             item.setActionCommand(t[0]); // groupId as action command.
             item.addActionListener(this);
 

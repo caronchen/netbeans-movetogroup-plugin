@@ -85,7 +85,7 @@ public final class ProjectGroupUtils {
     /**
      * Get all project groups.
      *
-     * @return String[0]=groupId, String[1]=groupName
+     * @return String[0]=groupId, String[1]=groupName, String[2]=count
      */
     public static List<String[]> getProjectGroups() {
         Preferences groupNode = getPreferences("org/netbeans/modules/projectui/groups");
@@ -95,13 +95,18 @@ public final class ProjectGroupUtils {
                 return childrenNames.stream().map(t -> {
                     String groupId = t;
                     String groupName = groupId;
+                    int count = 0;
 
                     Preferences childGroupNode = getPreferences("org/netbeans/modules/projectui/groups/" + groupId);
                     if (childGroupNode != null) {
                         groupName = childGroupNode.get("name", null);
+                        String path = childGroupNode.get("path", "");
+                        if (path != null && !path.isBlank()) {
+                            count = path.split(" ").length;
+                        }
                     }
 
-                    return new String[] {groupId, groupName};
+                    return new String[] {groupId, groupName, String.valueOf(count)};
                 }).collect(toList());
             } catch (BackingStoreException ex) {
                 Exceptions.printStackTrace(ex);
