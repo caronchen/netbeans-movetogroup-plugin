@@ -63,31 +63,21 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                        <configuration>
-                            <gpgArguments>
-                                <arg>--pinentry-mode</arg>
-                                <arg>loopback</arg>
-                            </gpgArguments>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            
-            <plugin>
-                <groupId>org.apache.netbeans.utilities</groupId>
+                <groupId>org.codehaus.mojo</groupId>
                 <artifactId>nbm-maven-plugin</artifactId>
-                <version>14.2</version>
+                <version>3.11.1</version>
                 <extensions>true</extensions>
+                <configuration>
+                    <!-- keep it for backwards compatibility to previous versions-->
+                    <codeNameBase>com.godroup.plugins.movetogroup</codeNameBase>
+                    <author>Caron(chentingjia@163.com)</author>
+                    <homePageUrl>https://github.com/caronchen</homePageUrl>
+                    <!-- keystore: only required, if you don't want to pass the path to the keystore file via cmdline-->
+                    <keystore>nbproject/private/keystore</keystore>
+                    <keystorealias>movetogroup</keystorealias>
+                    <licenseName>Apache 2.0</licenseName>
+                    <licenseFile>LICENSE</licenseFile>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
